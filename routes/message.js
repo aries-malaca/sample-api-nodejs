@@ -10,7 +10,7 @@ function getResponse(msg) {
     item.contexts.forEach(context => {
       if(msg.includes(context))  {
         hits.push({
-          position: msg.indexOf(context),
+          position: msg.indexOf(context.toLowerCase()),
           message: item.message
         });
         return;
@@ -42,7 +42,7 @@ router.post('/', function(req, res, next) {
 
   res.json({
     response_id: req.body.conversation_id,
-    response: getResponse(req.body.message)
+    response: getResponse(req.body.message.toLowerCase())
   });
 });
 

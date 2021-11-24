@@ -36,7 +36,7 @@ router.post('/', function(req, res, next) {
 
   // validate
   if(!isValid(req.body)){
-    res.status(401).json({ message: 'Validation error, payload is not in valid format.' });
+    res.status(400).json({ message: 'Validation error, payload is not in valid format.' });
     return;
   }
 

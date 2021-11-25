@@ -8,9 +8,10 @@ function getResponse(msg) {
 
   messageData.chatResponses.forEach((item) => {
     item.contexts.forEach(context => {
-      if(msg.includes(context))  {
+      const search = context.toLowerCase()
+      if(msg.includes(search))  {
         hits.push({
-          position: msg.indexOf(context.toLowerCase()),
+          position: msg.indexOf(search),
           message: item.message
         });
         return;
